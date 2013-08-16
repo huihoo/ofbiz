@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<%--
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
 distributed with this work for additional information
@@ -16,13 +15,6 @@ software distributed under the License is distributed on an
 KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
--->
+--%>
 
-<ofbiz-component name="danielxu"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
-   
-    <webapp name="danielxu" app-bar-display="true" title="danielxu"
-	description="DanielxuTestTypeGame" server="default-server" location="webapp/games"
-	base-permission="OFBTOOLS,PARTYMGR" mount-point="/danielxu" />
-</ofbiz-component>
+<%pageContext.forward("control/main");%>
