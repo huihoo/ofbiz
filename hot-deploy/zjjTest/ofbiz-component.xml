@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 该配置文件是为了让ofbiz知道项目资源的位置并将其加入到classpath中 -->
+<ofbiz-component name="zjjTest"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
+	<!-- 定义一个资源加载器，加载的资源类型这里是组件类型，名字可以自由取 -->
+    <resource-loader name="main" type="component"/>
+    <!-- web applications; will be mounted when using the embedded container -->
+    <!-- 配置web应用 ，当启动ofbiz时将访问  http://localhost:8080/zjjTest-->
+    <webapp name="zjjTest"
+        title="ZjjTest"
+        server="default-server"
+        location="webapp/zjjTest"
+        base-permission="OFBTOOLS,ZJJTEST"
+        mount-point="/zjjTest"/>
+</ofbiz-component>
