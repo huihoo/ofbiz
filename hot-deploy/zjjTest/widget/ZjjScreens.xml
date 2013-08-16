@@ -4,7 +4,7 @@
 	<screen name="main">
 		<section>
 			<widgets>
-				<label>i wonnar study ofbiz framework</label>
+				<label>这是我的第一个ofbiz示例</label>
 			</widgets>
 		</section>
 	</screen>
