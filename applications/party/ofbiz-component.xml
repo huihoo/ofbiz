@@ -42,7 +42,7 @@ under the License.
     <test-suite loader="main" location="testdef/PartyTests.xml"/>
     <test-suite loader="main" location="testdef/PartyContactMechTests.xml"/>
 
-    <webapp name="party"
+     <webapp name="party"
         title="Party"
         description="PartyComponentDescription"
         server="default-server"
