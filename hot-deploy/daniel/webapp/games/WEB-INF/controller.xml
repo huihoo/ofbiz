@@ -15,15 +15,10 @@
 	<description>danielxu learning Module Site Configuration File</description>
 
 	<handler name="screen" type="view"
-		class="org.ofbiz.widget.screen.ScreenWidgetViewHandler" />
-	<!-- <request-map uri="*">
-		<response name="success" type="view" value="main" />
-	</request-map>
-	<view-map name="main" type="screen"
-		page="component://danielxu/games/game.html#main" /> -->
+		class="org.ofbiz.content.view.SimpleContentViewHandler" />
 	<request-map uri="TestScreen">
 		<response name="success" type="view" value="TestScreen" />
 	</request-map>
 	<view-map name="TestScreen" type="screen"
-		page="component://danielxu/widget/danielxuTestScreens.xml#TestScreen" />
+		page="component://daniel/widget/DanielTestScreens.xml#TestScreen" />
 </site-conf>
