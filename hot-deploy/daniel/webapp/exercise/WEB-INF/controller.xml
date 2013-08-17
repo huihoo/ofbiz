@@ -13,9 +13,9 @@
 <site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
 	<description>danielxu learning Module Site Configuration File</description>
-
-	<handler name="screen" type="view"
-		class="org.ofbiz.widget.screen.ScreenWidgetViewHandler" />
+	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+	<!-- <handler name="screen" type="view" class="org.ofbiz.widget.screen.ScreenWidgetViewHandler" 
+		/> -->
 	<request-map uri="main">
 		<response name="success" type="view" value="main" />
 	</request-map>

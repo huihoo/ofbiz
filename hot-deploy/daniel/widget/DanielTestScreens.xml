@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="http://www.ofbiz.org/dtds/widget-screen.xsd">
-	<screen name="TestScreen">
+	<screen name="main">
 		<section>
 			<widgets>
-				<label text="hello!this's my simple test" />
+				<label text="hello!this's so called homepage.surprise?" />
 			</widgets>
 		</section>
 	</screen>
