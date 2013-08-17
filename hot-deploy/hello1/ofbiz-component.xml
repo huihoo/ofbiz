@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ofbiz-component name="hello1"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
+      <resource-loader   name="main" type="component"/>
+    <webapp name="hello1"
+       title="Hello1"
+       server="default-server"
+       base-permission="OFBTOOLS"
+       location="webapp/hello1"
+       mount-point="/hello1"
+       app-bar-display="false"/>
+</ofbiz-component>
