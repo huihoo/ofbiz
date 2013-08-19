@@ -25,11 +25,11 @@
 	</context-param>
 	<context-param>
 		<param-name>localDispatcherName</param-name>
-		<param-value>danielxu</param-value>
+		<param-value>daniel</param-value>
 	</context-param>
 	<context-param>
 		<param-name>mainDecoratorLocation</param-name>
-		<param-value>component://daniel/widget/DanielTestScreens.xml</param-value>
+		<param-value>component://daniel/widget/CommonScreens.xml</param-value>
 	</context-param>
 	<filter>
 		<filter-name>ContextFilter</filter-name>

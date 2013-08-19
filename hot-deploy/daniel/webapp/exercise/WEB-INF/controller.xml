@@ -14,11 +14,19 @@
 	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
 	<description>danielxu learning Module Site Configuration File</description>
 	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
-	<!-- <handler name="screen" type="view" class="org.ofbiz.widget.screen.ScreenWidgetViewHandler" 
-		/> -->
 	<request-map uri="main">
 		<response name="success" type="view" value="main" />
 	</request-map>
 	<view-map name="main" type="screen"
-		page="component://daniel/widget/DanielTestScreens.xml#main" />
+		page="component://daniel/widget/CommonScreens.xml#commondecorator" />
+	<request-map uri="person">
+		<response name="success" type="view" value="person" />
+	</request-map>
+	<view-map name="person" type="screen"
+		page="component://daniel/widget/PersonScreens.xml#person" />
+	<request-map uri="game">
+		<response name="success" type="view" value="game" />
+	</request-map>
+	<view-map name="game" type="screen"
+		page="component://daniel/widget/GameScreens.xml#game" />
 </site-conf>
