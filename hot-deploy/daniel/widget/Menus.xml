@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-menu.xsd">
+	<menu name="AppBar" title="DanielApplication" extends="CommonAppBarMenu"
+		extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="test" title="Main">
+			<link target="main" />
+		</menu-item>
+		<menu-item name="person" title="Person">
+			<link target="person" />
+		</menu-item>
+		<menu-item name="PersonForm" title="PersonForm">
+			<link target="PersonForm" />
+		</menu-item>
+		<menu-item name="events" title="Events">
+			<link target="Events" />
+		</menu-item>
+		<menu-item name="eca" title="ECA">
+			<link target="Eca" />
+		</menu-item>
+		<menu-item name="serviceGroup" title="Service Group">
+			<link target="ServiceGroup" />
+		</menu-item>
+		<menu-item name="interface" title="Interface">
+			<link target="Interface" />
+		</menu-item>
+		<menu-item name="ajax" title="Ajax">
+			<link target="Ajax" />
+		</menu-item>
+	</menu>
+	<menu name="EventMenu" default-menu-item-name="eventMinilang"
+		default-selected-style="selected" type="simple" menu-container-style="button-bar button-style-1"
+		selected-menuitem-context-field-name="headerItem">
+		<menu-item name="eventMinilang" title="Create Person --- Event MiniLang">
+			<link target="CreatePersonEventM" />
+		</menu-item>
+		<menu-item name="eventJava" title="Create Person --- Event Java">
+			<link target="CreatePersonEventJ" />
+		</menu-item>
+	</menu>
+</menus>

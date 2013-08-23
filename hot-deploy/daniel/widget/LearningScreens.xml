@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.ofbiz.org/dtds/widget-screen.xsd">
+	<screen name="OneFormScreen">
+		<section>
+			<widgets>
+				<decorator-screen name="xhtml-decorator">
+					<decorator-section name="title">
+						<label text="A Screen with just 1 form." />
+					</decorator-section>
+					<decorator-section name="body">
+						<include-form name="FirstForm"
+							location="component://daniel/widget/LearningForms.xml" />
+						<section>
+							<condition>
+								<not>
+									<if-empty field="parameters.submit" />
+								</not>
+							</condition>
+							<widgets>
+								<container>
+									<label text="firstName: ${parameters.firstName}" />
+								</container>
+								<container>
+									<label text="lastName: ${parameters.lastName}" />
+								</container>
+								<container>
+									<label text="combined: ${parameters.combined}" />
+								</container>
+								<container>
+									<label text="submit: ${parameters.submit}" />
+								</container>
+								<container>
+									<label text="All the parameters we received:" />
+								</container>
+								<container>
+									<label text="${parameters.allParams}" />
+								</container>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="header1">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://daniel/webapp/exercise/includes/header1.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="header2">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://daniel/webapp/exercise/includes/header2.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="CompoundedScreen">
+		<section>
+			<widgets>
+				<decorator-screen name="xhtml-decorator">
+					<decorator-section name="title">
+						<label text="A Screen made up of 2 simpler screens." />
+					</decorator-section>
+					<decorator-section name="body">
+						<include-screen name="SimplestScreen" />
+						<include-screen name="AnotherSimpleScreen" />
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="xhtml-decorator">
+		<section>
+			<widgets>
+				<include-screen name="header1" />
+				<decorator-section-include name="title" />
+				<include-screen name="header2" />
+				<decorator-section-include name="body" />
+				<include-screen name="footer" />
+			</widgets>
+		</section>
+	</screen>
+	<screen name="CompoundedScreen">
+		<section>
+			<widgets>
+				<container>
+					<include-screen name="SimplestScreen" />
+				</container>
+				<container>
+					<include-screen name="AnotherSimpleScreen" />
+				</container>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="AnotherSimpleScreen">
+		<section>
+			<widgets>
+				<label text="Just Another Simple Screen." />
+			</widgets>
+		</section>
+	</screen>
+	<screen name="SimplestScreen">
+		<section>
+			<widgets>
+				<label text="Simplest Screen possible in OFBiz!" />
+			</widgets>
+		</section>
+	</screen>
+	<screen name="footer">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://daniel/webapp/exercise/includes/footer.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<!-- <screen name="header"> <section> <widgets> <platform-specific> <html> 
+		<html-template location="component://daniel/webapp/exercise/includes/header.ftl" 
+		/> </html> </platform-specific> </widgets> </section> </screen> <screen name="NestedScreen"> 
+		<section> <actions> <set field="global3" value="Global Value C" global="true" 
+		/> <set field="global4" value="Global Value D" global="true" /> <set field="local3" 
+		value="Local Value c" /> <set field="local4" value="Local Value d" /> <set 
+		field="local1" value="Local Value z" /> </actions> <widgets> <container> 
+		<label text="NestedScreen screen:" /> </container> <container> <label text="global1: 
+		${global1}" /> </container> <container> <label text="global2: ${global2}" 
+		/> </container> <container> <label text="global3: ${global3}" /> </container> 
+		<container> <label text="global4: ${global4}" /> </container> <container> 
+		<label text="local1: ${local1}" /> </container> <container> <label text="local2: 
+		${local2}" /> </container> <container> <label text="local3: ${local3}" /> 
+		</container> <container> <label text="local4: ${local4}" /> </container> 
+		</widgets> </section> </screen> <screen name="GlobalContext"> <section> <actions> 
+		<set field="global1" value="Global Value A" global="true" /> <set field="local1" 
+		value="Local Value a" /> <script location="component://daniel/webapp/exercise/WEB-INF/actions/globalContext.groovy" 
+		/> </actions> <widgets> <include-screen name="header" /> <label text="&lt;table 
+		style=&quot;width:50%&quot;&gt;&lt;tr&gt;" /> <label text="&lt;td style=&quot;border:thin 
+		solid&quot;&gt;" /> <include-screen name="NestedScreen" /> <label text="&lt;/td&gt;" 
+		/> <label text="&lt;td style=&quot;border:thin solid&quot;&gt;" /> <container> 
+		<label text="GlobalContext screen:" /> </container> <container> <label text="global1: 
+		${global1}" /> </container> <container> <label text="global2: ${global2}" 
+		/> </container> <container> <label text="global3: ${global3}" /> </container> 
+		<container> <label text="global4: ${global4}" /> </container> <container> 
+		<label text="local1: ${local1}" /> </container> <container> <label text="local2: 
+		${local2}" /> </container> <container> <label text="local3: ${local3}" /> 
+		</container> <container> <label text="local4: ${local4}" /> </container> 
+		<label text="&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" /> <include-screen name="footer" 
+		/> </widgets> </section> </screen> -->
+	<!-- <screen name="ConditionalScreen"> <section> <condition> <if-compare 
+		field="parameters.show" operator="equals" value="widgets" /> </condition> 
+		<actions> <set field="blah" value="blih" /> </actions> <widgets> <label text="Condition 
+		passed. Showing widgets element. Blah is: ${blah}" /> </widgets> <fail-widgets> 
+		<label text="Condition failed! Showing fail-widgets element. Blah is: ${blah}" 
+		/> </fail-widgets> </section> </screen> <screen name="ConditionalScreenWithGroovy"> 
+		<section> <condition> <if-compare field="parameters.show" operator="equals" 
+		value="widgets" /> </condition> <actions> <script location="component://daniel/webapp/exercise/WEB-INF/actions/Learning.groovy" 
+		/> </actions> <widgets> <label text="Condition passed. Showing widgets element. 
+		Blah is: ${blah}" /> </widgets> <fail-widgets> <label text="Condition failed! 
+		Showing fail-widgets element. Blah is: ${blah}" /> </fail-widgets> </section> 
+		</screen> <screen name="ConditionalScreenWithGroovy"> <section> <condition> 
+		<if-compare field="parameters.show" operator="equals" value="widgets" /> 
+		</condition> <actions> <script location="component://daniel/webapp/exercise/WEB-INF/actions/Learning.groovy" 
+		/> </actions> <widgets> <label text="${passMsg}" /> </widgets> <fail-widgets> 
+		<label text="Condition failed! Showing fail-widgets element. Blah is: ${blah}" 
+		/> </fail-widgets> </section> </screen> <screen name="NestedSections"> <section> 
+		<condition> <if-compare field="parameters.outer" operator="equals" value="true" 
+		/> </condition> <actions> <set field="blah" value="blih" /> </actions> <widgets> 
+		<container> <label text="In Then part. Blah is: ${blah}" /> </container> 
+		<container> <label text="inner is: ${parameters.inner}" /> </container> <section> 
+		<condition> <if-compare field="parameters.inner" operator="equals" value="true" 
+		/> </condition> <actions> <set field="inner.blah" value="thenBlih" /> </actions> 
+		<widgets> <label text="In Then-Then part. inner.blah is: ${inner.blah}" /> 
+		</widgets> <fail-widgets> <label text="In Then-Else part. inner.blah is: 
+		null(becasue inner is not equals ture,you can append inner=true)" /> </fail-widgets> 
+		</section> </widgets> <fail-widgets> <container> <label text="In Else part. 
+		Blah is: ${blah}" /> </container> <container> <label text="inner is: ${parameters.inner}" 
+		/> </container> <section> <condition> <if-compare field="parameters.inner" 
+		operator="equals" value="true" /> </condition> <actions> <set field="inner.blah" 
+		value="elseBlih" /> </actions> <widgets> <label text="In Else-Then part. 
+		inner.blah is: ${inner.blah}" /> </widgets> <fail-widgets> <label text="In 
+		Else-Else part. inner.blah is: ${inner.blah}" /> </fail-widgets> </section> 
+		</fail-widgets> </section> </screen> <screen name="body-decorator"> <section> 
+		<widgets> <include-screen name="body-header" /> <decorator-section-include 
+		name="body" /> <include-screen name="body-footer" /> </widgets> </section> 
+		</screen> <screen name="body-header"> <section> <widgets> <label text="Start 
+		of Body" /> <label text="&lt;span style=&quot;background-color:#FFEEEE&quot;&gt;" 
+		/> </widgets> </section> </screen> <screen name="body-footer"> <section> 
+		<widgets> <label text="&lt;/span&gt;" /> <label text="End of Body" /> </widgets> 
+		</section> </screen> -->
+
+</screens>
+

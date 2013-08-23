@@ -14,19 +14,109 @@
 	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
 	<description>danielxu learning Module Site Configuration File</description>
 	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+
+	<request-map uri="updatePerson">
+		<security https="true" auth="true" />
+		<event type="java" path="org.ofbiz.daniel.exercise.Events"
+			invoke="updatePerson" />
+		<response name="success" type="view" value="PersonForm" />
+		<response name="error" type="view" value="PersonForm" />
+	</request-map>
+	<request-map uri="deletePerson">
+		<security https="true" auth="true" />
+		<event type="simple" path="org/hotwax/exercise/Services.xml"
+			invoke="deletePerson" />
+		<response name="success" type="view" value="PersonForm" />
+		<response name="error" type="view" value="PersonForm" />
+	</request-map>
+	<request-map uri="CreatePersonEventM">
+		<security https="true" auth="true" />
+		<event type="simple" path="org/hotwax/exercise/Events.xml"
+			invoke="createPersonSimpleEvent" />
+		<response name="success" type="view" value="CreatePersonEventM" />
+		<response name="error" type="view" value="CreatePersonEventM" />
+	</request-map>
+	<request-map uri="CreatePersonEventJ">
+		<security https="true" auth="true" />
+	<event type="service" path="" invoke="CreatePersonEventJ" />
+		<response name="success" type="view" value="CreatePersonEventJ" />
+		<response name="error" type="view" value="CreatePersonEventJ" />
+	</request-map>
+	<request-map uri="Events">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="CreatePersonEventM" />
+	</request-map>
+	<view-map name="CreatePersonEventM" type="screen"
+		page="component://daniel/widget/Screens.xml#CreatePersonEventM" />
+	<view-map name="CreatePersonEventJ" type="screen"
+		page="component://daniel/widget/Screens.xml#CreatePersonEventJ" />
+
+	<request-map uri="createPerson">
+		<security https="true" auth="true" />
+		<event type="service" invoke="createPerson" />
+		<response name="success" type="view" value="PersonForm" />
+	</request-map>
+
+	<request-map uri="processFirstForm">
+		<event type="java" path="org.ofbiz.daniel.exercise.LearningEvents"
+
+			invoke="processFirstForm" />
+		<response name="success" type="view" value="OneFormScreen" />
+	</request-map>
+	<request-map uri="OneFormScreen">
+		<response name="success" type="view" value="OneFormScreen" />
+	</request-map>
+	<view-map name="OneFormScreen" type="screen"
+		page="component://daniel/widget/LearningScreens.xml#OneFormScreen" />
+	<request-map uri="CompoundedScreen">
+		<response name="success" type="view" value="CompoundedScreen" />
+	</request-map>
+	<view-map name="CompoundedScreen" type="screen"
+		page="component://daniel/widget/LearningScreens.xml#CompoundedScreen" />
+	<request-map uri="GlobalContext">
+		<response name="success" type="view" value="GlobalContext" />
+	</request-map>
+	<view-map name="GlobalContext" type="screen"
+		page="component://daniel/widget/LearningScreens.xml#GlobalContext" />
+	<request-map uri="CompoundedScreen">
+		<response name="success" type="view" value="CompoundedScreen" />
+	</request-map>
+	<view-map name="CompoundedScreen" type="screen"
+		page="component://daniel/widget/LearningScreens.xml#CompoundedScreen" />
+	<request-map uri="NestedSections">
+		<response name="success" type="view" value="NestedSections" />
+	</request-map>
+	<view-map name="NestedSections" type="screen"
+		page="component://daniel/widget/LearningScreens.xml#NestedSections" />
+	<request-map uri="ConditionalScreenWithGroovy">
+		<response name="success" type="view" value="ConditionalScreenWithGroovy" />
+	</request-map>
+	<view-map name="ConditionalScreenWithGroovy" type="screen"
+		page="component://daniel/widget/LearningScreens.xml#ConditionalScreenWithGroovy" />
+	<request-map uri="ConditionalScreen">
+		<response name="success" type="view" value="ConditionalScreen" />
+	</request-map>
+	<view-map name="ConditionalScreen" type="screen"
+		page="component://daniel/widget/LearningScreens.xml#ConditionalScreen" />
 	<request-map uri="main">
+		<security https="true" auth="true" />
 		<response name="success" type="view" value="main" />
 	</request-map>
 	<view-map name="main" type="screen"
-		page="component://daniel/widget/CommonScreens.xml#commondecorator" />
+		page="component://daniel/widget/CommonScreens.xml#CommonDecorator" />
 	<request-map uri="person">
+		<security https="true" auth="true" />
 		<response name="success" type="view" value="person" />
 	</request-map>
 	<view-map name="person" type="screen"
-		page="component://daniel/widget/PersonScreens.xml#person" />
-	<request-map uri="game">
-		<response name="success" type="view" value="game" />
+		page="component://daniel/widget/Screens.xml#person" />
+	<!-- <request-map uri="game"> <response name="success" type="view" value="game" 
+		/> </request-map> <view-map name="game" type="screen" page="component://daniel/widget/GameScreens.xml#game" 
+		/> -->
+	<request-map uri="PersonForm">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="PersonForm" />
 	</request-map>
-	<view-map name="game" type="screen"
-		page="component://daniel/widget/GameScreens.xml#game" />
+	<view-map name="PersonForm" type="screen"
+		page="component://daniel/widget/PersonForms.xml#PersonForm" />
 </site-conf>

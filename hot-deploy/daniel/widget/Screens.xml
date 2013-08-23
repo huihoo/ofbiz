@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.ofbiz.org/dtds/widget-screen.xsd">
+	<screen name="person">
+		<section>
+			<actions>
+				<set field="headerItem" value="person" />
+				<script
+					location="component://daniel/webapp/exercise/WEB-INF/actions/Person.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://daniel/webapp/exercise/Person.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="CreatePersonEventM">
+		<section>
+			<actions>
+				<set field="headerItem" value="eventMinilang" />
+				<set field="titleProperty" value="PageTitleSimpleEventForms" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<include-menu location="component://daniel/widget/Menus.xml"
+							name="EventMenu" />
+						<label text="New Person --- Simple Event" style="h1" />
+						<include-form name="CreatePersonSimpleForm"
+							location="component://daniel/widget/Forms.xml" />
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="CreatePersonEventJ">
+		<section>
+			<actions>
+				<set field="headerItem" value="eventJava" />
+				<set field="titleProperty" value="PageTitleJavaEventForms" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<include-menu location="component://daniel/widget/Menus.xml"
+							name="EventMenu" />
+						<label text="New Person --- Java Event" style="h1" />
+						<include-form name="CreatePersonEventJ"
+							location="component://daniel/widget/Forms.xml" />
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+</screens>
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.ofbiz.org/dtds/widget-screen.xsd">
+	<screen name="PersonForm">
+		<section>
+			<actions>
+				<set field="headerItem" value="personForm" />
+				<set field="titleProperty" value="PageTitlePersonForm" />
+				<entity-condition entity-name="Person" list="persons" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<label text="Person List" style="h2" />
+						<include-form name="ListPersons"
+							location="component://daniel/widget/Forms.xml" />
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="UpdatedPersonList">
+		<section>
+			<actions>
+				<script
+					location="component://daniel/webapp/exercise/WEB-INF/actions/person.groovy" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://daniel/webapp/exercise/person.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+</screens>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+	<form name="ListPersons" type="list" list-name="persons"
+		list-entry-name="person" target="updatePerson">
+		<auto-fields-service service-name="updatePerson"
+			default-field-type="edit" map-name="person" />
+		<!-- <field name="partyId">
+			<hidden />
+		</field> -->
+		<field name="submitButton" title="Update" widget-style="smallSubmit">
+			<submit button-type="button" />
+		</field>
+		<field name="deletePerson" title="Delete Person" widget-style="buttontext">
+			<hyperlink target="deletePerson?partyId=${person.partyId}"
+				description="Delete" />
+		</field>
+	</form>
+
+	<form name="CreatePerson" type="single" target="createPerson">
+		<auto-fields-service service-name="createPerson" />
+		<field name="submitButton" title="Create" widget-style="smallSubmit">
+			<submit button-type="button" />
+		</field>
+	</form>
+	<form name="CreatePersonSimpleForm" type="single" target="CreatePersonEventM">
+		<auto-fields-service service-name="createPerson" />
+		<field name="submitButton" title="${uiLabelMap.CommonCreate}"
+			widget-style="smallSubmit">
+			<submit button-type="button" />
+		</field>
+	</form>
+	<form name="CreatePersonEventJ" type="single" target="CreatePersonEventJ">
+		<auto-fields-service service-name="CreatePersonEventJ" />
+		<field name="submitButton" title="${uiLabelMap.CommonCreate}"
+			widget-style="smallSubmit">
+			<submit button-type="button" />
+		</field>
+	</form>
+</forms>
+

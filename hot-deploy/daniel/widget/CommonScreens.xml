@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.ofbiz.org/dtds/widget-screen.xsd">
+	<screen name="CommonDecorator">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator">
+					<decorator-section name="body">
+						<decorator-section-include name="body" />
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="main-decorator">
+		<section>
+			<actions>
+				<property-map resource="CommonUiLabels" map-name="uiLabelMap"
+					global="true" />
+				<property-map resource="PracticeUiLabels" map-name="uiLabelMap"
+					global="true" />
+				<set field="layoutSettings.companyName" from-field="uiLabelMap.PracticeCompanyName"
+					global="true" />
+				<set field="activeApp" value="daniel" global="true" />
+				<!-- <set field="layoutSettings.javaScripts[+0]" value="/images/prototypejs/validation.js" 
+					global="true" /> <set field="layoutSettings.javaScripts[]" value="/images/prototypejs/prototype.js" 
+					global="true" /> -->
+				<set field="applicationMenuName" value="AppBar" global="true" />
+				<set field="applicationMenuLocation" value="component://daniel/widget/Menus.xml"
+					global="true" />
+			</actions>
+			<widgets>
+				<include-screen name="GlobalDecorator"
+					location="component://common/widget/CommonScreens.xml" />
+			</widgets>
+		</section>
+	</screen>
+</screens>
+
